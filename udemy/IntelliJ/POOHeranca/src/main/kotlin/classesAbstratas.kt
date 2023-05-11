@@ -13,5 +13,5 @@ class Cachorro(nome: String) : Mamifero(nome) {
     }
 }
 fun main() {
-    // val m = Mamifero() . Classe abstrata não pode ser instanciada.
+    // val m = Mamífero() . Classe abstrata não pode ser instanciada.
 }
