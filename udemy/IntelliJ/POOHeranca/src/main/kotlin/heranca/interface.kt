@@ -1,3 +1,5 @@
+package heranca
+
 interface Selvagem { // Interface representa um "contrato".
     fun atacar() { // O método na interface pode conter corpo.
         println("Atacar")

@@ -1,3 +1,5 @@
+package heranca
+
 interface Funcionario {
     var salario: Float
     fun bonus(): Float

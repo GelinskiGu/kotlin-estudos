@@ -1,3 +1,5 @@
+package heranca
+
 private class X private constructor() // Limita visibilidade no arquivo se private estiver antes da classe.
 // Se estiver no construtor, classe não pode ser instanciada
 

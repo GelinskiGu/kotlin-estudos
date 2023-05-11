@@ -1,3 +1,5 @@
+package heranca
+
 class Matematica {
     companion object NOME { // Escrever atributos e métodos que são estáticos.
         val PI = 3.1415

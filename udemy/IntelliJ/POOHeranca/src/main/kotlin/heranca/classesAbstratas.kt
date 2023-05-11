@@ -1,3 +1,5 @@
+package heranca
+
 abstract class Mamifero(val nome: String) {
     fun acordar() {
         println("Acordei")

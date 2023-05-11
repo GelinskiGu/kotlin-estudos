@@ -1,3 +1,5 @@
+package heranca
+
 interface Event {
     fun onSuccess()
 }

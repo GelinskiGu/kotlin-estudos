@@ -1,3 +1,5 @@
+package heranca
+
 open class Eletronico(var marca: String) {
 	
 	private fun corrente(ativo: Boolean) {
@@ -17,13 +19,13 @@ open class Eletronico(var marca: String) {
 class Computador(marca: String) : Eletronico(marca) {
 	override fun desligar() {
 		save()
-		super.desligar() // Para usar métodos da classe pai usar a palavra super.
+		super.desligar() // Para usar mï¿½todos da classe pai usar a palavra super.
 	}
 	
 	fun save() {}
-	fun save(a: Int) {} // Pode duas funções com o mesmo nome mas parâmetros diferentes.
-	fun save(a: Float) {} // Tipo do parâmetro diferentes.
-	// Overload é funções com mesmo nome que se diferem no tipo ou número de parâmetros.
+	fun save(a: Int) {} // Pode duas funï¿½ï¿½es com o mesmo nome mas parï¿½metros diferentes.
+	fun save(a: Float) {} // Tipo do parï¿½metro diferentes.
+	// Overload ï¿½ funï¿½ï¿½es com mesmo nome que se diferem no tipo ou nï¿½mero de parï¿½metros.
 	
 	
 }
