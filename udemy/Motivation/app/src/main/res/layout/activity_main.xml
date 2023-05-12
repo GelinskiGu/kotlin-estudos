@@ -82,4 +82,5 @@
         android:backgroundTint="@color/dark_purple"
         android:text="@string/new_phrase" />
 
+
 </RelativeLayout>
