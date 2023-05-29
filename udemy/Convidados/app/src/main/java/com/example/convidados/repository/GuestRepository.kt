@@ -1,6 +1,8 @@
 package com.example.convidados.repository
 
+import android.content.ContentValues
 import android.content.Context
+import com.example.convidados.model.GuestModel
 
 // Não se pode instanciar o banco de dados mais de uma vez,
 // por isso tem que ser privado o construtor
@@ -20,8 +22,16 @@ class GuestRepository private constructor(context: Context) {
         }
     }
 
-    fun get(){
+    fun insert(guest: GuestModel) {
+        val db = guestDataBase.writableDatabase
+
+        val present = if (guest.presence) 1 else 0
+
+        val values = ContentValues()
+        values.put("name", guest.name)
+        values.put("presence", guest.presence)
+
+        db.insert("Guest", null, values)
     }
-    fun save() {}
 
 }
