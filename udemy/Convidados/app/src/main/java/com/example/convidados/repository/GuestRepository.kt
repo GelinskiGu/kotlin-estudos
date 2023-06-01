@@ -1,5 +1,6 @@
 package com.example.convidados.repository
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import com.example.convidados.constants.DataBaseConstants
@@ -16,7 +17,7 @@ class GuestRepository private constructor(context: Context) {
         private lateinit var repository: GuestRepository
 
         fun getInstance(context: Context): GuestRepository {
-            if(!Companion::repository.isInitialized) {
+            if (!Companion::repository.isInitialized) {
                 repository = GuestRepository(context)
             }
             return repository
@@ -71,5 +72,45 @@ class GuestRepository private constructor(context: Context) {
         } catch (e: Exception) {
             false
         }
+    }
+
+    @SuppressLint("Range")
+    fun getAll(): List<GuestModel> {
+        val list = mutableListOf<GuestModel>()
+        try {
+            val db = guestDataBase.readableDatabase
+
+            val columnId = DataBaseConstants.GUEST.COLUMNS.ID
+            val columnName = DataBaseConstants.GUEST.COLUMNS.NAME
+            val columnPresence = DataBaseConstants.GUEST.COLUMNS.PRESENCE
+
+            val selection = arrayOf(
+                columnId,
+                columnName,
+                columnPresence
+            )
+
+            val cursor = db.query(
+                DataBaseConstants.GUEST.TABLE_NAME,
+                selection,
+                null, null, null, null, null
+            )
+
+            if (cursor != null && cursor.count > 0) {
+                while (cursor.moveToNext()) {
+                    val id = cursor.getInt(cursor.getColumnIndex(columnId))
+                    val name =
+                        cursor.getString(cursor.getColumnIndex(columnName))
+                    val presence =
+                        cursor.getInt(cursor.getColumnIndex(columnPresence))
+
+                    list.add(GuestModel(id, name, presence == 1))
+                }
+            }
+            cursor.close()
+        } catch (e: Exception) {
+            return list
+        }
+        return list
     }
 }
