@@ -14,9 +14,9 @@ class GuestDataBase(context: Context, ) : SQLiteOpenHelper(context, NAME, null, 
 
     override fun onCreate(db: SQLiteDatabase) {
         // Criação do banco de dados. É chamado uma única vez
-        db.execSQL("create table" + DataBaseConstants.GUEST.TABLE_NAME + "(" +
-                DataBaseConstants.GUEST.COLUMNS.ID + "integer primary key autoincrement, " +
-                DataBaseConstants.GUEST.COLUMNS.NAME + " text,"+
+        db.execSQL("CREATE TABLE " + DataBaseConstants.GUEST.TABLE_NAME + " (" +
+                DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, " +
+                DataBaseConstants.GUEST.COLUMNS.NAME + " text, " +
                 DataBaseConstants.GUEST.COLUMNS.PRESENCE + " integer);")
     }
 

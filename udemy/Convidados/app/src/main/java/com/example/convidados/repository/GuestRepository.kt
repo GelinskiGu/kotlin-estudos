@@ -30,8 +30,8 @@ class GuestRepository private constructor(context: Context) {
             val presence = if (guest.presence) 1 else 0
 
             val values = ContentValues()
+            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presence)
             values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
-            values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, guest.presence)
 
             db.insert(DataBaseConstants.GUEST.TABLE_NAME, null, values)
             true
